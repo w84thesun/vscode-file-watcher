@@ -7,12 +7,12 @@
 		"color": "#E4F2FF",
 		"theme": "light"
 	},
-	"publisher": "appulate",
+	"publisher": "w84thesun",
 	"license": "MIT",
 	"version": "2.0.0",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/appulate/vscode-file-watcher.git"
+		"url": "https://github.com/w84thesun/vscode-file-watcher.git"
 	},
 	"engines": {
 		"vscode": "^1.71.0"
@@ -228,7 +228,16 @@
 	"devDependencies": {
 		"@types/node": "^18.7.16",
 		"@types/vscode": "^1.71.0",
-		"tslint": "^6.1.3",
+		"@typescript-eslint/eslint-plugin": "^7.1.0",
+		"@typescript-eslint/eslint-plugin-tslint": "^7.0.2",
+		"@typescript-eslint/parser": "^7.1.0",
+		"@vscode/test-cli": "^0.0.6",
+		"@vscode/test-electron": "^2.3.9",
+		"eslint": "^8.57.0",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-jsdoc": "^48.2.0",
+		"eslint-plugin-prefer-arrow": "^1.2.3",
+		"eslint-plugin-unicorn": "^51.0.1",
 		"typescript": "^5.1.3"
 	},
 	"dependencies": {

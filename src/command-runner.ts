@@ -20,7 +20,7 @@ interface IProcessHandlers {
 class CommandRunner {
   public isRunProcess: boolean = false;
 
-  public constructor(private outputChannel: OutputChannel) {}
+  public constructor(private outputChannel: OutputChannel) { }
 
   private resolveProcessSuccess(msg: string): StatusType {
     this.outputChannel.showMessage(getClickableLinksInMsg(msg));

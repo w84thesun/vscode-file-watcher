@@ -14,6 +14,7 @@ function getCmdReplaceInfo(
   const { fsPath } = documentUri;
   const workspaceRootPath: string =
     vscode.workspace.workspaceFolders?.[0]?.uri.fsPath ?? "";
+  const workspaceName: string = vscode.workspace.workspaceFolders?.[0]?.name ?? "";
   const currentWorkspacePath: string =
     vscode.workspace.getWorkspaceFolder(documentUri)?.uri.fsPath ?? "";
   const extName: string = path.extname(fsPath);
@@ -34,6 +35,10 @@ function getCmdReplaceInfo(
     {
       pattern: /\${workspaceRelativeDir}/,
       replaceStr: path.relative(workspaceRootPath, fsPath),
+    },
+    {
+      pattern: /\${workspaceName}/,
+      replaceStr: workspaceName,
     },
     {
       pattern: /\${currentWorkspace}/,
