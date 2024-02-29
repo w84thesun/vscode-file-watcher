@@ -1,6 +1,6 @@
 {
-	"name": "filewatcher",
-	"displayName": "File Watcher",
+	"name": "filewatcher-new",
+	"displayName": "File Watcher New",
 	"description": "Watch file or folder changes (deletions, creations, renaming), and run matched command scripts.",
 	"icon": "media/lightning.png",
 	"galleryBanner": {
@@ -218,12 +218,16 @@
 		}
 	},
 	"scripts": {
-		"vscode:prepublish": "npm run compile",
+		"vscode:prepublish": "npm run esbuild-base -- --minify",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch",
 		"prepare": "npm install -g vsce",
 		"generate": "vsce package",
-		"publish": "vsce publish"
+		"publish": "vsce publish",
+		"esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
+		"esbuild": "npm run esbuild-base -- --sourcemap",
+		"esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+		"test-compile": "tsc -p ./"
 	},
 	"devDependencies": {
 		"@types/node": "^18.7.16",
@@ -233,6 +237,7 @@
 		"@typescript-eslint/parser": "^7.1.0",
 		"@vscode/test-cli": "^0.0.6",
 		"@vscode/test-electron": "^2.3.9",
+		"esbuild": "^0.20.1",
 		"eslint": "^8.57.0",
 		"eslint-plugin-import": "^2.29.1",
 		"eslint-plugin-jsdoc": "^48.2.0",
